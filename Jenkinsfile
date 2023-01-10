@@ -23,15 +23,9 @@ pipeline {
         sh '''
           npx playwright test --list
           npx playwright test
+          npx playwright show-report          
         '''
       }
-      stage('reports') {
-      steps {
-        sh '''
-           npx playwright show-report
-        '''
-      }  
-      
       post {
         success {
           archiveArtifacts(artifacts: 'homepage-*.png', followSymlinks: false)
