@@ -22,8 +22,7 @@ pipeline {
       steps {
         sh '''
           npx playwright test --list
-          npx playwright test
-          npx playwright show-report          
+          npx playwright test                 
         '''
       }
       post {
@@ -33,5 +32,18 @@ pipeline {
         }
       }
     }
+    stage('Make report') {
+            steps {               
+                publishHTML([
+                            allowMissing: false,
+                            alwaysLinkToLastBuild: true,
+                            keepAll: true,
+                            reportDir: 'playwright-report',
+                            reportFiles: 'index.html',
+                            reportName: "aggregated",
+                            reportTitles: 'tile'
+                        ])
+            }
+        }
   }
 }
