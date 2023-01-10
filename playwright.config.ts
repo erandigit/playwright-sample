@@ -29,14 +29,8 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  //reporter: 'html',
+  reporter: 'html',
 
-  const config: PlaywrightTestConfig = {
-  reporter: [
-    ['list'],
-    ['json', {  outputFile: 'test-results.json' }]
-  ],
-},
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
 
@@ -61,7 +55,7 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-    {
+    /*{
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
@@ -73,7 +67,7 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['Desktop Safari'],
       },
-    },
+    },*/
 
     /* Test against mobile viewports. */
     // {
