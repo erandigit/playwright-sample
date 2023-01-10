@@ -39,7 +39,7 @@ pipeline {
                             alwaysLinkToLastBuild: true,
                             keepAll: true,
                             reportDir: 'playwright-report',
-                            reportFiles: 'index.html',
+                            reportFiles: 'index.json',
                             reportName: "aggregated",
                             reportTitles: 'tile'
                         ])
